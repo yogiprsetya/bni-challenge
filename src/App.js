@@ -1,4 +1,4 @@
-import './App.css';
+import 'assets/tailwind.output.css'
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import RouterManager from 'router';
