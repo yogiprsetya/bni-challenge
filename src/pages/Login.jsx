@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import { create } from 'utils/api';
 import Icon from 'icon';
 
 const Login = () => {
@@ -7,12 +8,30 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [hidePassword, setHidePassword] = useState(true);
 
+  const login = async e => {
+    e.preventDefault();
+
+    // const dataUser = {email, password};
+
+    const data = await create('login', {email, password})
+    console.log(data);
+  }
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const resDataProduct = await read('shipments/status-summary');
+  //     console.log(resDataProduct.data);
+  //   };
+
+  //   fetchData();
+  // }, [])
+
   return (
     <div className="bg-darkDrop h-screen overflow-hidden flex justify-center items-center">
       <div className="w-3/12">
         <img src="/images/logo.jpg" className="mx-auto" alt="logo" />
 
-        <form>
+        <form onSubmit={ login }>
           <div className="text-white mt-1 py-3">
             <small className="text-mainBrand">Email</small>
 

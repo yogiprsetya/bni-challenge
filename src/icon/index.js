@@ -11,8 +11,8 @@ const Icon = ({ size, color, icon }) => (
     xmlnsXlink="http://www.w3.org/1999/xlink"
   >
     {
-      iconPath[icon].path.map(item => (
-        <path fill-rule="evenodd" fill={color} d={item} />
+      iconPath[icon].path.map((item, i) => (
+        <path key={ i } fillRule="evenodd" fill={color} d={item} />
       ))
     }
   </svg>
