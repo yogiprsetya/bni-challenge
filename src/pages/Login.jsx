@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { create } from 'utils/api';
 import { login } from 'store/actions/logginUser';
 import Icon from 'icon';
 
-const Login = ({...props}) => {
+const Login = ({ isAuthenticated, history, ...props }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [hidePassword, setHidePassword] = useState(true);
@@ -16,14 +15,9 @@ const Login = ({...props}) => {
     props.dispatch(login(dataUser));
   }
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const resDataProduct = await read('shipments/status-summary');
-  //     console.log(resDataProduct.data);
-  //   };
-
-  //   fetchData();
-  // }, [])
+  useEffect(() => {
+    if (isAuthenticated) { history.push('/') }
+  }, [isAuthenticated]);
 
   return (
     <div className="bg-darkDrop h-screen overflow-hidden flex justify-center items-center">
@@ -80,7 +74,7 @@ const Login = ({...props}) => {
 }
 
 const mapStateToProps = state => ({
-  ...state.auth
+  ...state.user
 });
 
 

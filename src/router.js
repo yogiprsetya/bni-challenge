@@ -13,11 +13,6 @@ const RouterManager = withRouter(({ location }) => (
 
     <Switch>
       <PrivateRoute exact path='/' component={ Dashboard } />
-      {/* <PrivateRoute path='/ar' component={ARPage} />
-      <PrivateRoute path='/ar-create' component={ARCreate} />
-      <PrivateRoute path='/ar-update' component={ARUpdate} />
-      <PrivateRoute path='/my-project' component={MyProject} />
-      <PrivateRoute path='/search/:term' component={SearchResult} /> */}
     </Switch>
   </Fragment>
 ));

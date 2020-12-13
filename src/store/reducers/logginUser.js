@@ -3,7 +3,7 @@ import isEmpty from 'is-empty';
 
 const initialState = {
   isAuthenticated: false,
-  user: {},
+  profile: {},
 };
 
 export default function index(state = initialState, action) {
