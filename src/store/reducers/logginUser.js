@@ -1,7 +1,9 @@
 import { LOGGIN_USER } from '../types';
+import isEmpty from 'is-empty';
 
 const initialState = {
-  currentUser: {},
+  isAuthenticated: false,
+  user: {},
 };
 
 export default function index(state = initialState, action) {
@@ -9,9 +11,9 @@ export default function index(state = initialState, action) {
     case LOGGIN_USER:
       return {
         ...state,
-        currentUser: action.payload,
+        isAuthenticated: !isEmpty(action.payload),
+        user: action.payload,
       };
-
     default:
       return state;
   }

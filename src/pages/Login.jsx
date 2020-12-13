@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { create } from 'utils/api';
+import { login } from 'store/actions/logginUser';
 import Icon from 'icon';
 
-const Login = () => {
+const Login = ({...props}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [hidePassword, setHidePassword] = useState(true);
 
-  const login = async e => {
+  const loginSubmit = e => {
     e.preventDefault();
 
-    // const dataUser = {email, password};
-
-    const data = await create('login', {email, password})
-    console.log(data);
+    const dataUser = {email, password};
+    props.dispatch(login(dataUser));
   }
 
   // useEffect(() => {
@@ -28,10 +27,10 @@ const Login = () => {
 
   return (
     <div className="bg-darkDrop h-screen overflow-hidden flex justify-center items-center">
-      <div className="w-3/12">
+      <div className="lg:w-3/12 sm:w-5/12">
         <img src="/images/logo.jpg" className="mx-auto" alt="logo" />
 
-        <form onSubmit={ login }>
+        <form onSubmit={ loginSubmit }>
           <div className="text-white mt-1 py-3">
             <small className="text-mainBrand">Email</small>
 
@@ -80,4 +79,9 @@ const Login = () => {
   )
 }
 
-export default connect()(Login);
+const mapStateToProps = state => ({
+  ...state.auth
+});
+
+
+export default connect(mapStateToProps)(Login);

@@ -1,11 +1,9 @@
 import axios from 'axios';
 
-axios.defaults.headers.common.Authorization = `Bearer 3pWE5byNyRLIgc8Mmg3NAkbyktbH5oCaEmWWgUTS`;
-
 const axiosInstance = async (method, path, request) => {
   // store.dispatch(setLoading(true));
 
-  return axios[method](`${global.ApiHost}${path}`, request)
+  return axios[method](`${path}`, request)
     .then(response => response)
     .catch(error => error.response)
 };
