@@ -18,7 +18,7 @@ const menuList = [
 const Navbar = (props) => {
 
   return (
-    <div className="shadow bg-whitel h-12 flex items-center justify-between">
+    <div className="shadow bg-whitel py-4 flex items-center justify-between">
       <button className="px-5">
         <Icon icon="menu" color="#000" />
       </button>

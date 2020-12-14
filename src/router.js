@@ -7,7 +7,7 @@ import Login from 'pages/Login';
 import Dashboard from 'pages/Dashboard';
 
 const RouterManager = withRouter(({ location, ...props }) => (
-  <div className="fixed inset-0 flex z-40">
+  <div className="inset-0 flex z-40">
     { location.pathname !== '/login' && <Sidebar {...props}  /> }
     <Route exact path='/login' component={ Login } />
 

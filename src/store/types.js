@@ -1,1 +1,3 @@
 export const LOGGIN_USER = 'LOGGIN_USER';
+
+export const SHIP_FILTER_STATUS = 'SHIP_FILTER_STATUS';

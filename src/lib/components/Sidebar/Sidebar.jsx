@@ -18,7 +18,7 @@ const menuList = [
 const Sidebar = (props) => {
 
   return (
-    <div className="relative flex-1 flex flex-col max-w-xs bg-darkDrop">
+    <div className="flex-1 flex flex-col bg-darkDrop" style={{ maxWidth: '15rem' }}>
       <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
 
         <div className="flex justify-center">
