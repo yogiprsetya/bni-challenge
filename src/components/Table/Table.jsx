@@ -62,8 +62,15 @@ const Table = ({ shipments, byStatus }) => {
                 email={ item.receiverEmail }
               /> }
             </td>
+
             <td className="px-3">{ item.goodsDetail }</td>
-            <td className="px-3 capitalize">{ item.status }</td>
+
+            <td className="px-3 capitalize">
+              <div className="flex items-center">
+                <span className={`${item.status === 'request' ? 'bg-blue-600' : 'bg-green-600'} block rounded-full h-2 w-2 mr-2`}></span>
+                { item.status }
+              </div>
+            </td>
 
             <td className="px-3 text-center">
               <button>

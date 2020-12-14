@@ -4,8 +4,6 @@ import { createShipment } from 'store/actions/createShipment';
 import { create } from "utils/api";
 
 const CreateShipment = ({ dispatch, dataShipment }) => {
-
-
   const submitShipment = e => {
     e.preventDefault();
 

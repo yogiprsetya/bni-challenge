@@ -17,7 +17,7 @@ const Login = ({ isAuthenticated, history, ...props }) => {
 
   useEffect(() => {
     if (isAuthenticated) { history.push('/') }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, history]);
 
   return (
     <div className="bg-darkDrop h-screen overflow-hidden flex justify-center items-center">
