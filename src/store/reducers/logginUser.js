@@ -2,7 +2,7 @@ import { LOGGIN_USER } from '../types';
 import isEmpty from 'is-empty';
 
 const initialState = {
-  isAuthenticated: false,
+  isAuthenticated: true,
   profile: {},
 };
 

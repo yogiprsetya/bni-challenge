@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Icon from 'icon';
@@ -10,7 +10,7 @@ const menuList = [
     icon: 'grid-view'
   }, {
     label: 'Pengiriman',
-    link: '/pengiriman',
+    link: '/shipment',
     icon: 'edit'
   }
 ]
@@ -18,8 +18,8 @@ const menuList = [
 const Sidebar = (props) => {
 
   return (
-    <div className="flex-1 flex flex-col bg-darkDrop" style={{ maxWidth: '15rem' }}>
-      <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
+    <div className="flex-1 flex flex-col bg-darkDrop min-h-screen" style={{ maxWidth: '15rem' }}>
+      <div className="flex-1 h-full pt-5 pb-4 fixed">
 
         <div className="flex justify-center">
           <img className="w-auto" src="/images/logo.jpg" alt="logo" />

@@ -16,7 +16,7 @@ const Dashbaord = () => {
     };
 
     fetchData();
-  }, [])
+  }, []);
 
   return (
     <div className="">

@@ -31,7 +31,7 @@ const Table = ({ shipments, byStatus }) => {
       <tbody>
         { shipments.data.filter(find => byStatus === '' ? find : find.status === byStatus).map(item => (
           <tr key={ item.id } className="text-sm">
-            <td className="px-3 text-center">SH-000{ item.id }</td>
+            <td className="px-3 text-center">{ item.id }</td>
 
             <td className="px-3 py-5">
               <button

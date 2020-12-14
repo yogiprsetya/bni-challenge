@@ -7,7 +7,7 @@ export const setCurrentUser = decoded => ({
 });
 
 export const login = userData => dispatch => {
-  axios.post(`${global.ApiHost}login`, userData)
+  axios.post(`${process.env.REACT_APP_APIHOST}login`, userData, {header: {"X-Requested-With": "XMLHttpRequest"}})
     .then(res => {
       localStorage.setItem('@shipme:token', res.data.auth.accessToken);
 

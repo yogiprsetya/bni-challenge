@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { sortByStatus } from 'store/actions/ShipmentFilter';
+import { sortByStatus } from 'store/actions/shipmentFilter';
 import { connect } from 'react-redux';
 
 const FilterSection = ({ dispatch, byStatus }) => {

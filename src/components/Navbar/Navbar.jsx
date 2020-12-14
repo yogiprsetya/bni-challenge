@@ -1,24 +1,11 @@
 import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Icon from 'icon';
-
-const menuList = [
-  {
-    label: 'Dashboard',
-    link: '/',
-    icon: 'grid-view'
-  }, {
-    label: 'Pengiriman',
-    link: '/pengiriman',
-    icon: 'edit'
-  }
-]
 
 const Navbar = (props) => {
 
   return (
-    <div className="shadow bg-whitel py-4 flex items-center justify-between">
+    <div className="shadow bg-white py-4 flex items-center justify-between">
       <button className="px-5">
         <Icon icon="menu" color="#000" />
       </button>
