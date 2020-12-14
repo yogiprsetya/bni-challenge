@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import auth from './logginUser';
+import Auth from './logginUser';
+import ShipmentFilter from './ShipmentFilter';
 
 export default combineReducers({
-  user: auth
+  user: Auth,
+  shipmentFilter: ShipmentFilter
 });

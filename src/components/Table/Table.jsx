@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import { connect } from 'react-redux';
 import Icon from 'icon';
 
 const DetailPerson = ({ address, email }) => (
@@ -11,7 +12,7 @@ const DetailPerson = ({ address, email }) => (
   </div>
 )
 
-const Table = ({ shipments }) => {
+const Table = ({ shipments, byStatus }) => {
   const [toggleTable, setToggleTable] = useState(false)
 
   return (
@@ -28,7 +29,7 @@ const Table = ({ shipments }) => {
       </thead>
 
       <tbody>
-        { shipments.data.map(item => (
+        { shipments.data.filter(find => byStatus === '' ? find : find.status === byStatus).map(item => (
           <tr key={ item.id } className="text-sm">
             <td className="px-3 text-center">SH-000{ item.id }</td>
 
@@ -77,4 +78,8 @@ const Table = ({ shipments }) => {
   )
 }
 
-export default Table;
+const mapStateToProps = state => ({
+  ...state.shipmentFilter
+});
+
+export default connect(mapStateToProps)(Table);

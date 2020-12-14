@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PrivateRoute from 'utils/PrivateRoute';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
-import { Sidebar, Navbar } from 'lib/components';
+import { Sidebar, Navbar } from 'components';
 import Login from 'pages/Login';
 import Dashboard from 'pages/Dashboard';
 
