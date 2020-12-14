@@ -22,7 +22,7 @@ const RouterManager = withRouter(({ location, ...props }) => (
           <PrivateRoute path='/shipment' component={ CreateShipment } />
         </Switch>
 
-        <footer className="text-center text-sm py-4 border-t">
+        <footer className="text-center text-sm py-4 border-t mt-20">
           @ 2020 SHIPME All Right Reserved
         </footer>
       </div>

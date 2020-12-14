@@ -137,7 +137,7 @@ const CreateShipment = ({ dispatch, dataShipment }) => {
             />
           </label>
 
-          <label className="flex items-center mb-5">
+          <label className="flex items-center mb-5 relative">
             <span className="w-1/12 mr-5 text-right">
               <small className="text-red-600 mr-2">*</small>
               Berat
@@ -149,9 +149,11 @@ const CreateShipment = ({ dispatch, dataShipment }) => {
               className="border py-1 px-2 flex-grow"
               onChange={ e => onDataChange('weightInKilo', e.target.value) }
             />
+
+            <small className="text-gray-400 absolute right-2">kg</small>
           </label>
 
-          <label className="flex items-center mb-5">
+          <label className="flex items-center mb-5 relative">
             <span className="w-1/12 mr-5 text-right">
               <small className="text-red-600 mr-2">*</small>
               Volume
@@ -163,6 +165,8 @@ const CreateShipment = ({ dispatch, dataShipment }) => {
               className="border py-1 px-2 flex-grow appearance-none"
               onChange={ e => onDataChange('volumeInCBM', e.target.value) }
             />
+
+            <small className="text-gray-400 absolute right-2">m3</small>
           </label>
         </div>
 

@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import Icon from 'icon';
 
@@ -12,8 +12,16 @@ const DetailPerson = ({ address, email }) => (
   </div>
 )
 
-const Table = ({ shipments, byStatus }) => {
-  const [toggleTable, setToggleTable] = useState(false)
+const Table = ({ shipments, byStatus, byBooking }) => {
+  const [toggleTable, setToggleTable] = useState(false);
+  const [dataDisplay, setDataDisplay] = useState(null);
+
+  useEffect(() => {
+    const filterStatus = shipments.data.filter(find => byStatus === '' ? find : find.status === byStatus);
+    const filterBooking = filterStatus.filter(obj => byBooking === '' ? obj : Object.values(obj).includes(parseInt(byBooking)));
+
+    setDataDisplay(filterBooking);
+  }, [byStatus, byBooking, shipments.data]);
 
   return (
     <table className="table-auto w-full">
@@ -29,7 +37,7 @@ const Table = ({ shipments, byStatus }) => {
       </thead>
 
       <tbody>
-        { shipments.data.filter(find => byStatus === '' ? find : find.status === byStatus).map(item => (
+        { dataDisplay && dataDisplay.map(item => (
           <tr key={ item.id } className="text-sm">
             <td className="px-3 text-center">{ item.id }</td>
 
