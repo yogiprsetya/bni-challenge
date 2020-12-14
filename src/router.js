@@ -2,19 +2,23 @@ import React, { Fragment } from 'react';
 import PrivateRoute from 'utils/PrivateRoute';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
-import { Sidebar } from 'lib/components';
+import { Sidebar, Navbar } from 'lib/components';
 import Login from 'pages/Login';
 import Dashboard from 'pages/Dashboard';
 
-const RouterManager = withRouter(({ location }) => (
-  <Fragment>
-    { location.pathname !== '/login' && <Sidebar /> }
+const RouterManager = withRouter(({ location, ...props }) => (
+  <div className="fixed inset-0 flex z-40">
+    { location.pathname !== '/login' && <Sidebar {...props}  /> }
     <Route exact path='/login' component={ Login } />
 
-    <Switch>
-      <PrivateRoute exact path='/' component={ Dashboard } />
-    </Switch>
-  </Fragment>
+    <div className="flex flex-1 w-ful flex-col">
+      { location.pathname !== '/login' && <Navbar /> }
+
+      <Switch>
+        <PrivateRoute exact path='/' component={ Dashboard } />
+      </Switch>
+    </div>
+  </div>
 ));
 
 export default RouterManager;

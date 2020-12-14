@@ -1,9 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = async (method, path, request) => {
-  // store.dispatch(setLoading(true));
-
-  return axios[method](`${path}`, request)
+  return axios[method](path, request)
     .then(response => response)
     .catch(error => error.response)
 };

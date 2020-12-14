@@ -6,6 +6,7 @@ import { read } from 'utils/api';
 import { setCurrentUser } from 'store/actions/logginUser'
 import RouterManager from 'router';
 import store from 'store';
+import { compose } from 'redux';
 
 const token = localStorage.getItem('@shipme:token');
 
