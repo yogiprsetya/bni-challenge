@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createShipment } from 'store/actions/createShipment';
 import { create } from "utils/api";
+import { InputGroup } from 'components';
 
 const CreateShipment = ({ dispatch, dataShipment }) => {
   const submitShipment = e => {
@@ -36,45 +37,24 @@ const CreateShipment = ({ dispatch, dataShipment }) => {
         </h3>
 
         <div className="sm:ml-0 md:ml-16 my-6">
-          <label className="flex items-center mb-5">
-            <span className="w-1/12 mr-5 text-right text-right">
-              <small className="text-red-600 mr-2">*</small>
-              Nama
-            </span>
+          <InputGroup
+            required
+            title="Nama"
+            onChange={ e => onDataChange('senderName', e) }
+          />
 
-            <input
-              required
-              className="border py-1 px-2 flex-grow"
-              onChange={ e => onDataChange('senderName', e.target.value) }
-            />
-          </label>
+          <InputGroup
+            required
+            type="email"
+            title="Email"
+            onChange={ e => onDataChange('senderEmail', e) }
+          />
 
-          <label className="flex items-center mb-5">
-            <span className="w-1/12 mr-5 text-right">
-              <small className="text-red-600 mr-2">*</small>
-              Email
-            </span>
-
-            <input
-              required
-              type="email"
-              className="border py-1 px-2 flex-grow"
-              onChange={ e => onDataChange('senderEmail', e.target.value) }
-            />
-          </label>
-
-          <label className="flex items-center mb-5">
-            <span className="w-1/12 mr-5 text-right">
-              <small className="text-red-600 mr-2">*</small>
-              Alamat
-            </span>
-
-            <input
-              required
-              className="border py-1 px-2 flex-grow"
-              onChange={ e => onDataChange('senderAddress', e.target.value) }
-            />
-          </label>
+          <InputGroup
+            required
+            title="Alamat"
+            onChange={ e => onDataChange('senderAddress', e) }
+          />
         </div>
 
         <h3 className="text-mainBrand border-b-2 py-4">
@@ -82,45 +62,24 @@ const CreateShipment = ({ dispatch, dataShipment }) => {
         </h3>
 
         <div className="sm:ml-0 md:ml-16 mt-6">
-          <label className="flex items-center mb-5">
-            <span className="w-1/12 mr-5 text-right">
-              <small className="text-red-600 mr-2">*</small>
-              Nama
-            </span>
+          <InputGroup
+            required
+            title="Nama"
+            onChange={ e => onDataChange('receiverName', e) }
+          />
 
-            <input
-              required
-              className="border py-1 px-2 flex-grow"
-              onChange={ e => onDataChange('receiverName', e.target.value) }
-            />
-          </label>
+          <InputGroup
+            required
+            type="email"
+            title="Email"
+            onChange={ e => onDataChange('receiverEmail', e) }
+          />
 
-          <label className="flex items-center mb-5">
-            <span className="w-1/12 mr-5 text-right">
-              <small className="text-red-600 mr-2">*</small>
-              Email
-            </span>
-
-            <input
-              required
-              type="email"
-              className="border py-1 px-2 flex-grow"
-              onChange={ e => onDataChange('receiverEmail', e.target.value) }
-            />
-          </label>
-
-          <label className="flex items-center mb-5">
-            <span className="w-1/12 mr-5 text-right">
-              <small className="text-red-600 mr-2">*</small>
-              Alamat
-            </span>
-
-            <input
-              required
-              className="border py-1 px-2 flex-grow"
-              onChange={ e => onDataChange('receiverAddress', e.target.value) }
-            />
-          </label>
+          <InputGroup
+            required
+            title="Nama"
+            onChange={ e => onDataChange('receiverAddress', e) }
+          />
         </div>
 
         <h3 className="text-mainBrand border-b-2 py-4">
@@ -128,46 +87,26 @@ const CreateShipment = ({ dispatch, dataShipment }) => {
         </h3>
 
         <div className="sm:ml-0 md:ml-16 mt-6">
-          <label className="flex items-center mb-5">
-            <span className="w-1/12 mr-5 text-right">Deskripsi</span>
+          <InputGroup
+            title="Deskripsi"
+            onChange={ e => onDataChange('goodsDetail', e) }
+          />
 
-            <input
-              className="border py-1 px-2 flex-grow"
-              onChange={ e => onDataChange('goodsDetail', e.target.value) }
-            />
-          </label>
+          <InputGroup
+            required
+            type="number"
+            title="Berat"
+            onChange={ e => onDataChange('weightInKilo', e) }
+            appendText="kg"
+          />
 
-          <label className="flex items-center mb-5 relative">
-            <span className="w-1/12 mr-5 text-right">
-              <small className="text-red-600 mr-2">*</small>
-              Berat
-            </span>
-
-            <input
-              required
-              type="number"
-              className="border py-1 px-2 flex-grow"
-              onChange={ e => onDataChange('weightInKilo', e.target.value) }
-            />
-
-            <small className="text-gray-400 absolute right-2">kg</small>
-          </label>
-
-          <label className="flex items-center mb-5 relative">
-            <span className="w-1/12 mr-5 text-right">
-              <small className="text-red-600 mr-2">*</small>
-              Volume
-            </span>
-
-            <input
-              required
-              type="number"
-              className="border py-1 px-2 flex-grow appearance-none"
-              onChange={ e => onDataChange('volumeInCBM', e.target.value) }
-            />
-
-            <small className="text-gray-400 absolute right-2">m3</small>
-          </label>
+          <InputGroup
+            required
+            type="number"
+            title="Volume"
+            onChange={ e => onDataChange('volumeInCBM', e) }
+            appendText="m3"
+          />
         </div>
 
         <button className="px-8 py-2 bg-mainBrand mx-auto block mt-8">

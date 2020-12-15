@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Sidebar, Navbar } from 'components';
+import { Sidebar, Navbar } from 'layouts';
 
 const PrivateRoute = ({ component: Component, isAuthenticated, progress, ...rest }) => {
   const appLayout = props => (

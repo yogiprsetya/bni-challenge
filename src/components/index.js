@@ -1,5 +1,4 @@
-export { default as Navbar } from './Navbar/Navbar';
-export { default as Sidebar } from './Sidebar/Sidebar';
 export { default as StatCard } from './StatCard/StatCard';
 export { default as Table } from './Table/Table';
 export { default as FilterSection } from './FilterSection/FilterSection';
+export { default as InputGroup } from './InputGroup/InputGroup';
