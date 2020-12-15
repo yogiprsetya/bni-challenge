@@ -1,20 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { openSidebar } from 'store/actions/appsControl';
 import Icon from 'icon';
 
-const Navbar = (props) => {
+const Navbar = ({ title, dispatch, showSidebar }) => {
 
   return (
     <div className="shadow bg-white py-4 flex items-center justify-between">
-      <button className="px-5">
-        <Icon icon="menu" color="#000" />
+      <button onClick={ () => dispatch(openSidebar(!showSidebar)) } className="px-5">
+        <Icon icon={ `${showSidebar ? 'menu-left' : 'menu-right' }` } color="#000" />
       </button>
 
-      <h1 className="w-full text-center">DASHBOARD</h1>
+      <h1 className="w-full text-center">{ title }</h1>
     </div>
   );
 }
 
-const mapStateToProps = state => state;
+const mapStateToProps = state => ({
+  ...state.appsControl
+});
 
 export default connect(mapStateToProps)(Navbar);

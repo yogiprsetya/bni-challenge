@@ -1,5 +1,7 @@
 export const LOGGIN_USER = 'LOGGIN_USER';
 
+export const APPS_SIDEBAR = 'APPS_SIDEBAR';
+
 export const SHIP_FILTER_PAGE = 'SHIP_FILTER_PAGE';
 export const SHIP_FILTER_STATUS = 'SHIP_FILTER_STATUS';
 export const SHIP_FILTER_NO = 'SHIP_FILTER_NO';

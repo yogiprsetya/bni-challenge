@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import Auth from './logginUser';
-import ShipmentFilter from './shipmentFilter';
-import CreateShipment from './createShipment';
+import auth from './logginUser';
+import shipmentFilter from './shipmentFilter';
+import createShipment from './createShipment';
+import appsControl from './appsControl';
 
 export default combineReducers({
-  user: Auth,
-  shipmentFilter: ShipmentFilter,
-  createShipment: CreateShipment
+  user: auth,
+  shipmentFilter,
+  createShipment,
+  appsControl
 });
