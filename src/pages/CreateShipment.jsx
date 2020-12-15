@@ -31,12 +31,12 @@ const CreateShipment = ({ dispatch, dataShipment }) => {
 
   return (
     <div className="my-12">
-      <form onSubmit={ submitShipment } className="md:px-40 sm:px-5">
+      <form onSubmit={ submitShipment } className="md:px-40 px-5">
         <h3 className="text-mainBrand border-b-2 pb-4">
           Pengirim
         </h3>
 
-        <div className="sm:ml-0 md:ml-16 my-6">
+        <div className="ml-0 md:ml-16 my-6">
           <InputGroup
             required
             title="Nama"

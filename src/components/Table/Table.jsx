@@ -24,10 +24,10 @@ const Table = ({ shipments, byStatus, byBooking }) => {
   }, [byStatus, byBooking, shipments.data]);
 
   return (
-    <table className="table-auto w-full">
+    <table className="w-full md:table block overflow-y-auto">
       <thead>
         <tr className="bg-softDrop text-mainBrand">
-          <th className="py-5 px-3 font-normal w-56">No Bookig</th>
+          <th className="py-5 px-3 font-normal w-36">No Bookig</th>
           <th className="px-3 text-left font-normal w-64">Data Pengirim</th>
           <th className="px-3 text-left font-normal w-64">Data Penerima</th>
           <th className="px-3 text-left font-normal">Detail Barang</th>

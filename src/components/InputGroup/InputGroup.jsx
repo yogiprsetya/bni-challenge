@@ -2,7 +2,7 @@ import React from 'react';
 
 const InputGroup = ({ title, type, onChange, required, appendText }) => (
   <label className={ `flex items-center mb-5 ${appendText ? 'relative' : ''}` }>
-    <span className="w-1/12 mr-5 text-right">
+    <span className="w-20 mr-5 text-right">
       { required && <small className="text-red-600 mr-2">*</small> }
       { title }
     </span>

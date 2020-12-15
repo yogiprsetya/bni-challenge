@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { sortByStatus, sortByBooking } from 'store/actions/shipmentFilter';
 import { connect } from 'react-redux';
 import Icon from 'icon';
@@ -6,8 +6,8 @@ import Icon from 'icon';
 const FilterSection = ({ dispatch, byStatus }) => {
 
   return (
-    <Fragment>
-      <div className="my-12 border-b-2">
+    <div className="my-10">
+      <div className="mb-6 border-b-2">
         <div className="px-5 -mx-3 w-full">
           <button
             className={ `px-5 py-4 mx-3 text-gray-700 ${byStatus === '' ? 'border-b-2 border-mainBrand' : ''}` }
@@ -47,7 +47,7 @@ const FilterSection = ({ dispatch, byStatus }) => {
           </div>
         </label>
       </div>
-    </Fragment>
+    </div>
   );
 };
 

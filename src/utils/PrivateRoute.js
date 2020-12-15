@@ -3,12 +3,12 @@ import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Sidebar, Navbar } from 'layouts';
 
-const PrivateRoute = ({ component: Component, isAuthenticated, progress, ...rest }) => {
+const PrivateRoute = ({ component: Component, isAuthenticated, showSidebar, progress, ...rest }) => {
   const appLayout = props => (
     <div className="flex">
       <Sidebar />
 
-      <div className="flex flex-1 flex-col">
+      <div className={ `flex flex-col ${showSidebar ? 'md:w-10/12 w-full' : 'w-full'}` }>
         <Navbar title={ rest.title } />
         <Component {...props} />
 
@@ -30,7 +30,8 @@ const PrivateRoute = ({ component: Component, isAuthenticated, progress, ...rest
 };
 
 const mapStateToProps = state => ({
-  ...state.user
+  ...state.user,
+  ...state.appsControl,
 });
 
 export default connect(mapStateToProps)(PrivateRoute);

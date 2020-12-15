@@ -20,7 +20,7 @@ const Dashbaord = () => {
 
   return (
     <div className="">
-      { summary && <div className="px-5 -mx-2 w-full flex justify-between mt-16">
+      { summary && <div className="px-5 flex flex-row flex-wrap mt-16">
         <StatCard
           number={summary.complete + summary.request}
           title="Semua"
