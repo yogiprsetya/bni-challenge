@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { StatCard, Table, FilterSection } from 'components'
 import { read } from "utils/api";
+import { connect } from 'react-redux';
 
-const Dashbaord = () => {
+const Dashbaord = ({ byPage }) => {
   const [summary, setSummary] = useState(null);
-  const [shipments, setShipments] = useState(null);
+  const [shipments, setShipments] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
       const resSummary = await read('shipments/status-summary');
-      const resShipments = await read('shipments?page=1&perPage=10');
+      const resShipments = await read(`shipments?page=${byPage}&perPage=10`);
 
       setSummary(resSummary.data);
       setShipments(resShipments.data);
     };
 
     fetchData();
-  }, []);
+  }, [byPage]);
 
   return (
     <div className="">
@@ -49,4 +50,8 @@ const Dashbaord = () => {
   )
 }
 
-export default Dashbaord;
+const mapStateToProps = state => ({
+  ...state.shipmentFilter
+});
+
+export default connect(mapStateToProps)(Dashbaord);

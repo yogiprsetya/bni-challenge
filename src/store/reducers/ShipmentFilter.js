@@ -1,7 +1,7 @@
 import { SHIP_FILTER_PAGE, SHIP_FILTER_STATUS, SHIP_FILTER_NO } from '../types';
 
 const initialState = {
-  byPage: '1',
+  byPage: 1,
   byStatus: '',
   byBooking: ''
 };

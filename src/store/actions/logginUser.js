@@ -11,7 +11,7 @@ export const login = userData => dispatch => {
     .then(res => {
       localStorage.setItem('@shipme:token', res.data.auth.accessToken);
 
-      setAuthToken(res.data.user.accessToken);
+      setAuthToken(res.data.auth.accessToken);
       dispatch(setCurrentUser(res.data.user))
 
       return true;
