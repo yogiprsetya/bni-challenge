@@ -8,4 +8,7 @@ Start dev:
 Deploy:
 - npm run tailwind:prod
 - npm run build
+
+Unit test:
+- npm run test
 ```
