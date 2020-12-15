@@ -26,5 +26,5 @@ export const create = (url, request) => {
 }
 
 export const update = (url, request) => {
-  return axiosInstance('put', url, request)
+  return axiosInstance('patch', url, request)
 }

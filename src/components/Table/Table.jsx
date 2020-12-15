@@ -1,7 +1,9 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import { sortByPage } from 'store/actions/shipmentFilter';
+import { openModalStatus } from 'store/actions/appsControl';
 import { connect } from 'react-redux';
 import Icon from 'icon';
+import { UpdateStatus } from 'components';
 
 const navButtonStyle = "w-8 h-8 border-2 border-brandMain flex justify-center items-center"
 
@@ -15,9 +17,10 @@ const DetailPerson = ({ address, email }) => (
   </div>
 )
 
-const Table = ({ shipments, byStatus, byBooking, dispatch }) => {
+const Table = ({ shipments, byStatus, byBooking, dispatch, showModalStatus }) => {
   const [toggleTable, setToggleTable] = useState(false);
   const [dataDisplay, setDataDisplay] = useState(null);
+  const [selectNoBooking, setSelectNoBooking] = useState(null);
 
   useEffect(() => {
     const filterStatus = shipments.data.filter(find => byStatus === '' ? find : find.status === byStatus);
@@ -25,6 +28,11 @@ const Table = ({ shipments, byStatus, byBooking, dispatch }) => {
 
     setDataDisplay(filterBooking);
   }, [byStatus, byBooking, shipments.data]);
+
+  const updateStatus = noBooking => {
+    dispatch(openModalStatus(true));
+    setSelectNoBooking(noBooking);
+  }
 
   return (
     <Fragment>
@@ -85,7 +93,7 @@ const Table = ({ shipments, byStatus, byBooking, dispatch }) => {
               </td>
 
               <td className="px-3 text-center">
-                <button>
+                <button onClick={ () => updateStatus(item.id) }>
                   <Icon icon="edit" color="#999" />
                 </button>
               </td>
@@ -120,12 +128,15 @@ const Table = ({ shipments, byStatus, byBooking, dispatch }) => {
           </button>
         </div>
       </div>
+
+      { showModalStatus && <UpdateStatus noBooking={ selectNoBooking } /> }
     </Fragment>
   );
 }
 
 const mapStateToProps = state => ({
-  ...state.shipmentFilter
+  ...state.shipmentFilter,
+  ...state.appsControl
 });
 
 export default connect(mapStateToProps)(Table);

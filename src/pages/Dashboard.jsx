@@ -35,7 +35,7 @@ const Dashbaord = ({ byPage }) => {
         />
 
         <StatCard
-          number={summary.request}
+          number={summary.complete}
           title="Complete"
           icon="check"
         />

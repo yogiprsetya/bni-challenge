@@ -1,8 +1,9 @@
-import { APPS_SIDEBAR, APPS_LOADING } from '../types';
+import { APPS_SIDEBAR, APPS_LOADING, APPS_MODAL_STATUS } from '../types';
 
 const initialState = {
   showSidebar: true,
-  startLoading: false
+  startLoading: false,
+  showUpdateStatus: false
 };
 
 export default function index(state = initialState, action = null) {
@@ -16,6 +17,11 @@ export default function index(state = initialState, action = null) {
       return {
         ...state,
         startLoading: action.payload,
+      };
+    case APPS_MODAL_STATUS:
+      return {
+        ...state,
+        showModalStatus: action.payload,
       };
     default:
       return state;
