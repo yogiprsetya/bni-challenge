@@ -1,8 +1,15 @@
 import axios from 'axios';
+import { startLoading } from 'store/actions/appsControl';
+import store from 'store';
 
 const axiosInstance = async (method, path, request) => {
+  store.dispatch(startLoading(true));
+
   return axios[method](path, request)
-    .then(response => response)
+    .then(response => {
+      store.dispatch(startLoading(false));
+      return response;
+    })
     .catch(error => error.response)
 };
 
